@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 
 import swapper
 from inline_ordering.admin import OrderableStackedInline
@@ -38,8 +39,7 @@ class SurveyStepAdmin(admin.ModelAdmin):
         return survey_step.inline_ordering_position
 
     def survey_link(self, survey_step):
-        return admin_edit_link(survey_step.survey)
-    survey_link.allow_tags = True
+        return mark_safe(admin_edit_link(survey_step.survey))
     survey_link.short_description = 'Survey'
 
 
@@ -61,9 +61,8 @@ class SurveyQuestionAdmin(admin.ModelAdmin):
     step_position.admin_order_field = 'step__inline_ordering_position'
 
     def survey(self, question):
-        return admin_edit_link(question.step.survey)
+        return mark_safe(admin_edit_link(question.step.survey))
     survey.admin_order_field = 'step__survey__title'
-    survey.allow_tags = True
 
 
 class SurveyResponseOptionAdmin(admin.ModelAdmin):
