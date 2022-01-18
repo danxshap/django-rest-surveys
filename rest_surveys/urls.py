@@ -10,9 +10,9 @@ from rest_surveys.views import (
 # API
 # With trailing slash appended:
 router = BulkRouter()
-router.register(r'surveys', SurveyViewSet, base_name='survey')
+router.register(r'surveys', SurveyViewSet, basename='survey')
 router.register(r'survey-responses', SurveyResponseViewSet,
-                base_name='survey-response')
+                basename='survey-response')
 slashless_router = BulkRouter(trailing_slash=False)
 slashless_router.registry = router.registry[:]
 
