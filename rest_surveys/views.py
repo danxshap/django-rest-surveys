@@ -35,9 +35,9 @@ class SurveyResponseViewSet(mixins.RetrieveModelMixin,
         ['rest_framework.permissions.IsAuthenticated']
     )]
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = getattr(settings,
-                            'REST_SURVEYS_SURVEYRESPONSE_FILTER_FIELDS',
-                            get_field_names(SurveyResponse))
+    filterset_fields = getattr(settings,
+                               'REST_SURVEYS_SURVEYRESPONSE_FILTER_FIELDS',
+                               get_field_names(SurveyResponse))
 
 
 class SurveyViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
