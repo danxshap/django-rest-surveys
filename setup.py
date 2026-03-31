@@ -25,7 +25,7 @@ setup(
     author='Designlab',
     author_email='hello@trydesignlab.com',
     url='https://github.com/danxshap/django-rest-surveys',
-    packages=['rest_surveys'],
+    packages=['rest_surveys', 'rest_surveys.migrations'],
     package_data={'': ['LICENSE']},
     package_dir={'rest_surveys': 'rest_surveys'},
     install_requires=[
